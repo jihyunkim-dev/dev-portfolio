@@ -2,20 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "NanumSquareNeoLight";
+  src: url("/fonts/NanumSquareNeo-aLt.ttf");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: "NanumSquareNeoRegular";
+  src: url("/fonts/NanumSquareNeo-bRg.ttf");
+}
+
+@font-face {
+  font-family: "NanumSquareNeoBold";
+  src: url("/fonts/NanumSquareNeo-cBd.ttf");
+}
+
+@font-face {
+  font-family: "NanumSquareNeoExtraBold";
+  src: url("/fonts/NanumSquareNeo-dEb.ttf");
+}
+
+@font-face {
+  font-family: "NanumSquareNeoHeavy";
+  src: url("/fonts/NanumSquareNeo-eHv.ttf");
+}
+
+@font-face {
+  font-family: "SpoqaHanSansNeoThin";
+  src: url("/fonts/SpoqaHanSansNeo-Thin.ttf");
+}
+
+@font-face {
+  font-family: "SpoqaHanSansNeoLight";
+  src: url("/fonts/SpoqaHanSansNeo-Light.ttf");
+}
+
+@font-face {
+  font-family: "SpoqaHanSansNeoRegular";
+  src: url("/fonts/SpoqaHanSansNeo-Regular.ttf");
+}
+
+@font-face {
+  font-family: "SpoqaHanSansNeoMedium";
+  src: url("/fonts/SpoqaHanSansNeo-Medium.ttf");
+}
+
+@font-face {
+  font-family: "SpoqaHanSansNeoBold";
+  src: url("/fonts/SpoqaHanSansNeo-Bold.ttf");
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: rgb(var(--foreground-rgb));
+  background: #ffffff;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
