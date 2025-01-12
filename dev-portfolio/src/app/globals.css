@@ -55,7 +55,7 @@
 body {
   margin: 0;
   color: rgb(var(--foreground-rgb));
-  background: #ffffff;
+  background: #fafaf9;
 }
 
 @layer utilities {
