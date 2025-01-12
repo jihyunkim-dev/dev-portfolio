@@ -32,7 +32,7 @@ const FirstWaveBlock = styled("div")({
   borderRadius: "38%",
   backgroundColor: theme.palette.primary[200],
   animation: `${waveAnimation} 15000ms infinite linear`,
-  opacity: 0.6,
+  opacity: 0.5,
 });
 
 const SecondWaveBlock = styled("div")({
@@ -44,7 +44,7 @@ const SecondWaveBlock = styled("div")({
   borderRadius: "38%",
   backgroundColor: theme.palette.primary[800],
   animation: `${waveAnimation} 40000ms infinite linear`,
-  opacity: 0.4,
+  opacity: 0.3,
 });
 
 const ThirdWaveBlock = styled("div")({
@@ -56,7 +56,7 @@ const ThirdWaveBlock = styled("div")({
   borderRadius: "30%",
   backgroundColor: theme.palette.primary[500],
   animation: `${waveAnimation} 50000ms infinite linear`,
-  opacity: 0.8,
+  opacity: 0.7,
 });
 
 function FirstWave() {
