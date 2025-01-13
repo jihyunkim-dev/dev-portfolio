@@ -2,8 +2,8 @@ import { WaveEffect } from "./MainClientBlock";
 
 export default function MainServerBlock() {
   return (
-    <div className="w-full h-[full] overflow-hidden bg-primary-50">
-      <div className="z-10 absolute inset-0 flex flex-col items-center justify-center">
+    <div className="w-full h-[full] overflow-hidden bg-primary-600">
+      <div className="z-10 absolute inset-0 gap-y-[20px] flex flex-col items-center justify-center">
         <MainTitle />
         <SubTitle />
       </div>
@@ -16,7 +16,7 @@ export default function MainServerBlock() {
 
 function MainTitle() {
   return (
-    <div className="text-[100px] font-[NanumSquareNeoHeavy] text-primary-800">
+    <div className="text-[100px] font-[NanumSquareNeoHeavy] tracking-widest text-primary-50">
       <p>Jihyun Kim</p>
     </div>
   );
@@ -24,7 +24,7 @@ function MainTitle() {
 
 function SubTitle() {
   return (
-    <div className="text-[70px] font-[NanumSquareNeoHeavy] text-primary-600">
+    <div className="text-[30px] font-[NanumSquareNeoBold] tracking-widest text-primary-50">
       <p>Front-end & App Developer.</p>
     </div>
   );
