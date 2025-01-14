@@ -86,18 +86,6 @@ const FourthWaveBlock = styled("div")({
   filter: "blur(2px)",
 });
 
-// const FifthWaveBlock = styled("div")({
-//   position: "absolute",
-//   top: "20%",
-//   left: "-40%",
-//   width: "200vw",
-//   height: "200vw",
-//   borderRadius: "30%",
-//   background: "linear-gradient(45deg, #F3E8FF, #572084)",
-//   animation: `${waveAnimation} 30000ms infinite linear`,
-//   opacity: 0.2,
-// });
-
 function FirstWave() {
   return <FirstWaveBlock />;
 }
@@ -112,10 +100,6 @@ function ThirdWave() {
 function FourthWave() {
   return <FourthWaveBlock />;
 }
-
-// function FifthWave() {
-//   return <FifthWaveBlock />;
-// }
 
 export function WaveEffect() {
   return (
@@ -133,7 +117,6 @@ export function WaveEffect() {
         <Grid item>
           <FourthWave />
         </Grid>
-        <Grid item>{/* <FifthWave /> */}</Grid>
       </Grid>
     </WaveEffectGridContainer>
   );
