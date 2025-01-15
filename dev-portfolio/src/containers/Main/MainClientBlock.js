@@ -42,7 +42,7 @@ const FirstWaveBlock = styled("div")({
   height: "200vw",
   borderRadius: "38%",
   background: "linear-gradient(70deg, #E0CCF6, #BD92E8)",
-  animation: `${waveAnimation} 18000ms infinite linear`,
+  animation: `${waveAnimation} 42000ms infinite linear`,
   opacity: 0.7,
   filter: "blur(3px)",
 });
