@@ -55,7 +55,7 @@ const SecondWaveBlock = styled("div")({
   height: "220vw",
   borderRadius: "38%",
   background: "linear-gradient(45deg, #7D48AC, #6B2DA0)",
-  animation: `${waveAnimation} 30000ms infinite linear`,
+  animation: `${waveAnimation} 35000ms infinite linear`,
   opacity: 0.3,
   filter: "blur(3px)",
 });
@@ -68,7 +68,7 @@ const ThirdWaveBlock = styled("div")({
   height: "200vw",
   borderRadius: "30%",
   backgroundColor: "linear-gradient(45deg, #BD92E8, #6B2DA0)",
-  animation: `${waveAnimation} 30000ms infinite linear`,
+  animation: `${waveAnimation} 70000ms infinite linear`,
   opacity: 0.5,
   filter: "blur(3px)",
 });
@@ -81,7 +81,7 @@ const FourthWaveBlock = styled("div")({
   height: "400vw",
   borderRadius: "30%",
   background: "linear-gradient(45deg, #E0CCF6, #45156A)",
-  animation: `${waveAnimation} 50000ms infinite linear`,
+  animation: `${waveAnimation} 55000ms infinite linear`,
   opacity: 0.3,
   filter: "blur(2px)",
 });
@@ -104,7 +104,7 @@ function FourthWave() {
 export function WaveEffect() {
   return (
     <WaveEffectGridContainer container>
-      <Grid2 container item>
+      <Grid2 container>
         <Grid2 item>
           <FirstWave />
         </Grid2>
