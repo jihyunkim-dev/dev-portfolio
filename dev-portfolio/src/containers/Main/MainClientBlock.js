@@ -1,7 +1,7 @@
 "use client";
 
 import { styled, keyframes } from "@mui/material/styles";
-import Grid2 from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid2";
 import theme from "@/configs/customTheme";
 
 const waveAnimation = keyframes({
@@ -13,7 +13,7 @@ const waveAnimation = keyframes({
   },
 });
 
-const WaveEffectGridContainer = styled(Grid2)({
+const WaveEffectGridContainer = styled(Grid)({
   display: "flex",
   position: "relative",
   width: "100vw",
@@ -104,20 +104,10 @@ function FourthWave() {
 export function WaveEffect() {
   return (
     <WaveEffectGridContainer container>
-      <Grid2 container>
-        <Grid2 item>
-          <FirstWave />
-        </Grid2>
-        <Grid2 item>
-          <SecondWave />
-        </Grid2>
-        <Grid2 item>
-          <ThirdWave />
-        </Grid2>
-        <Grid2 item>
-          <FourthWave />
-        </Grid2>
-      </Grid2>
+      <FirstWave />
+      <SecondWave />
+      <ThirdWave />
+      <FourthWave />
     </WaveEffectGridContainer>
   );
 }
