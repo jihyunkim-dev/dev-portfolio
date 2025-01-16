@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { createContext } from "react";
 
-export const MainContext = createContext();
+export const ContactContext = createContext();
 
 export default function ContactClientContainer(props) {
   const { children } = props;
