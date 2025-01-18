@@ -2,7 +2,6 @@
 
 import { styled, keyframes } from "@mui/material/styles";
 import Grid from "@mui/material/Grid2";
-import theme from "@/configs/customTheme";
 
 const waveAnimation = keyframes({
   from: {
@@ -22,16 +21,6 @@ const WaveEffectGridContainer = styled(Grid)({
   justifyContent: "center",
   alignItems: "center",
   overflow: "hidden",
-});
-
-const WaveBase = styled("div")({
-  position: "absolute",
-  zIndex: 10,
-  left: "-100%",
-  width: "300%",
-  height: "100%",
-  borderRadius: "50%",
-  animation: `${waveAnimation} 10s ease-in-out infinite`,
 });
 
 const FirstWaveBlock = styled("div")({
