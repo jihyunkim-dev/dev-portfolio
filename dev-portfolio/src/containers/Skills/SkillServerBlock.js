@@ -1,3 +1,7 @@
 export default function SkillServerBlock() {
-  return <div></div>;
+  return (
+    <div>
+      <p>Skill Container</p>
+    </div>
+  );
 }

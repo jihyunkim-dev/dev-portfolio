@@ -12,12 +12,8 @@ export default function Root(props) {
   return (
     <main className="flex flex-col">
       <NavBar />
-      <div className="flex">
-        <MainServerContainer params={params} />
-      </div>
-      <div className="flex">
-        <IntroServerContainer />
-      </div>
+      <MainServerContainer params={params} />
+      <IntroServerContainer />
       <SkillServerContainer />
       <CareerServerContainer />
       <ProjectServerContainer />

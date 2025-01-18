@@ -1,16 +1,19 @@
+import DefaultLayout from "@/components/DefaultLayout";
 import { WaveEffect } from "./MainClientBlock";
 
 export default function MainServerBlock() {
   return (
-    <div className="w-full h-full overflow-hidden bg-primary-600">
-      <div className="z-10 absolute inset-0 gap-y-[20px] flex flex-col items-center justify-center">
-        <MainTitle />
-        <SubTitle />
+    <DefaultLayout>
+      <div className="w-full h-full overflow-hidden bg-primary-600">
+        <div className="z-10 absolute inset-0 gap-y-[20px] flex flex-col items-center justify-center">
+          <MainTitle />
+          <SubTitle />
+        </div>
+        <div className="absolute inset-0">
+          <WaveEffect />
+        </div>
       </div>
-      <div className="absolute inset-0">
-        <WaveEffect />
-      </div>
-    </div>
+    </DefaultLayout>
   );
 }
 
