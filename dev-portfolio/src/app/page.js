@@ -7,13 +7,17 @@ import MainServerContainer from "@/containers/Main/MainServerContainer";
 import ProjectServerContainer from "@/containers/Project/ProjectsServerContainer";
 import SkillServerContainer from "@/containers/Skills/SkillServerContainer";
 
-export default function Home(props) {
+export default function Root(props) {
   const { params } = props;
   return (
-    <main>
+    <main className="flex flex-col">
       <NavBar />
-      <MainServerContainer params={params} />
-      <IntroServerContainer />
+      <div className="flex">
+        <MainServerContainer params={params} />
+      </div>
+      <div className="flex">
+        <IntroServerContainer />
+      </div>
       <SkillServerContainer />
       <CareerServerContainer />
       <ProjectServerContainer />
