@@ -2,6 +2,8 @@
 
 import { styled, keyframes } from "@mui/material/styles";
 import Grid from "@mui/material/Grid2";
+import { downArrowIconUrl } from "@/configs/urls";
+import Image from "next/image";
 
 const waveAnimation = keyframes({
   from: {
@@ -52,19 +54,6 @@ const SecondWaveBlock = styled("div")({
 const ThirdWaveBlock = styled("div")({
   position: "absolute",
   top: "20%",
-  left: "0%",
-  width: "200vw",
-  height: "200vw",
-  borderRadius: "30%",
-  backgroundColor: "linear-gradient(45deg, #BD92E8, #6B2DA0)",
-  animation: `${waveAnimation} 70000ms infinite linear`,
-  opacity: 0.5,
-  filter: "blur(3px)",
-});
-
-const FourthWaveBlock = styled("div")({
-  position: "absolute",
-  top: "20%",
   left: "-20%",
   width: "400vw",
   height: "400vw",
@@ -86,17 +75,18 @@ function ThirdWave() {
   return <ThirdWaveBlock />;
 }
 
-function FourthWave() {
-  return <FourthWaveBlock />;
-}
-
 export function WaveEffect() {
   return (
     <WaveEffectGridContainer container>
       <FirstWave />
       <SecondWave />
       <ThirdWave />
-      <FourthWave />
     </WaveEffectGridContainer>
+  );
+}
+
+export function DownArrow() {
+  return (
+    <Image src={downArrowIconUrl} alt="ScrollDown" width={50} height={50} />
   );
 }
