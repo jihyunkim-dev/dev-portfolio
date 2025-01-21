@@ -22,7 +22,7 @@ export default function IntroServerBlock() {
 function IntroTitle() {
   return (
     <div className="flex pt-[200px]">
-      <p className="text-[80px] font-[NanumSquareNeoExtraBold] text-primary-700 tracking-wider">
+      <p className="text-[80px] font-[NanumSquareNeoExtraBold] tracking-wider bg-gradient-to-r from-primary-300 to-primary-900 [-webkit-text-fill-color:transparent] bg-clip-text">
         REPEATER.
       </p>
     </div>
@@ -31,7 +31,7 @@ function IntroTitle() {
 
 function IntroDescription() {
   return (
-    <div className="">
+    <div className="flex flex-col">
       <div className="flex justify-center">
         <p className="text-[20px] font-[NanumSquareNeoExtraBold] text-darkGray-700 tracking-widest">
           아이디어로 가능성을
@@ -43,7 +43,7 @@ function IntroDescription() {
           시키고
         </p>
       </div>
-      <div className="flex">
+      <div className="flex justify-center">
         <p className="text-[20px] font-[NanumSquareNeoExtraBold] text-darkGray-700 tracking-widest">
           코드로 가능성을
         </p>
