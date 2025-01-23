@@ -8,11 +8,19 @@ export function NavBarHooks() {
     const handleScroll = () => {
       const mainContainerHeight = window.innerHeight;
 
-      if (window.scrollY > mainContainerHeight - 100) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.scrollY > mainContainerHeight - 100);
+
+      const sections = document.querySelectorAll("section");
+      let currentSection = "";
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 150 && rect.bottom >= 150) {
+          currentSection = section.id;
+        }
+      });
+
+      setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
