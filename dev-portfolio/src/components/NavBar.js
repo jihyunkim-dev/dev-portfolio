@@ -12,7 +12,7 @@ const NavBarGridContainer = styled(Grid)({
   width: "100%",
   top: 0,
   left: 0,
-  zIndex: 50,
+  zIndex: 30,
   transition: "all 0.3s ease-in-out",
 });
 
