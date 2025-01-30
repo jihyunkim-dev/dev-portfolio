@@ -10,7 +10,7 @@ const NavBarGridContainer = styled(Grid)({
   backgroundColor: "#ffffff",
   position: "fixed",
   width: "100%",
-  top: 0,
+  bottom: 0,
   left: 0,
   zIndex: 30,
   transition: "all 0.3s ease-in-out",
