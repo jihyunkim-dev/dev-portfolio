@@ -9,6 +9,7 @@ import SkillServerContainer from "@/containers/Skills/SkillServerContainer";
 
 export default function Root(props) {
   const { params } = props;
+
   return (
     <main className="flex flex-col">
       <NavBar />

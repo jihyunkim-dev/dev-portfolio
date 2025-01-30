@@ -6,17 +6,11 @@ export function NavBarHooks() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const mainContainer = document.getElementById("main");
-      const introContainer = document.getElementById("intro");
-      const mainContainerHeight = window.innerHeight;
+      const mainSection = document.getElementById("main");
+      if (!mainSection) return;
 
-      if (introContainer) {
-        const introTop = introContainer.getBoundingClientRect().top;
-
-        setIsVisible(introTop <= window.innerHeight);
-      }
-
-      // setIsVisible(window.scrollY > mainContainerHeight - 100);
+      const mainRect = mainSection.getBoundingClientRect();
+      setIsVisible(mainRect.bottom <= 0);
 
       const sections = document.querySelectorAll("section");
       let currentSection = "";
@@ -35,6 +29,7 @@ export function NavBarHooks() {
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

@@ -13,6 +13,8 @@ const NavBarGridContainer = styled(Grid)({
   bottom: 0,
   left: 0,
   zIndex: 30,
+  opacity: 0, // 초기 상태는 투명
+  transform: "translateY(100%)", // 초기 상태는 아래로 숨김
   transition: "all 0.3s ease-in-out",
 });
 
@@ -28,7 +30,11 @@ export default function NavBar() {
   return (
     <NavBarGridContainer
       container
-      sx={{ display: isVisible ? "flex" : "none" }}
+      sx={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0)" : "translateY(100%)",
+        pointerEvents: isVisible ? "auto" : "none",
+      }}
     >
       <NavItem active={activeSection === "intro"}>
         <Link href="#intro">Intro</Link>
