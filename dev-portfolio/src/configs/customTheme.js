@@ -56,7 +56,7 @@ let theme = createTheme({
       800: "#572084",
       900: "#45156A",
     },
-    Gray: {
+    gray: {
       main: "#78716C",
       50: "#FAFAF9",
       100: "#F5F5F4",
@@ -82,7 +82,7 @@ let theme = createTheme({
       800: "#1F2937",
       900: "#111827",
     },
-    SageGreen: {
+    sageGreen: {
       main: "#859080",
       50: "#F7F7F3",
       100: "#E9EDE4",

@@ -4,6 +4,8 @@ import { NavBarHooks } from "@/hooks/NavBarHooks";
 import { styled, keyframes } from "@mui/material/styles";
 import Grid from "@mui/material/Grid2";
 import Link from "next/link";
+import Butterfly from "./Butterfly";
+import theme from "@/configs/customTheme";
 
 const navBarAnimation = keyframes({
   "0%": {
@@ -41,7 +43,7 @@ const NavBarContainer = styled("div")({
 });
 
 const NavBarGridContainer = styled(Grid)({
-  backgroundColor: "#7D48AC",
+  backgroundColor: theme.palette.darkGray[200],
   height: "60px",
   width: "100%",
   borderRadius: "30px",
@@ -53,7 +55,7 @@ const NavBarGridContainer = styled(Grid)({
 
 const NavItem = styled("div")(({ active }) => ({
   padding: "10px 15px",
-  color: active ? "#ffffff" : "rgba(255, 255, 255, 0.7)",
+  color: active ? "#000000" : "rgba(255, 255, 255, 0.7)",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -83,11 +85,11 @@ export default function NavBar() {
         <NavItem active={activeSection === "intro"}>
           <Link href="#intro">Intro</Link>
         </NavItem>
-        <NavItem active={activeSection === "skills"}>
-          <Link href="#skills">Skills</Link>
+        <NavItem active={activeSection === "experience"}>
+          <Link href="#experience">Skills</Link>
         </NavItem>
-        <NavItem active={activeSection === "projects"}>
-          <Link href="#projects">Projects</Link>
+        <NavItem active={activeSection === "works"}>
+          <Link href="#works">Projects</Link>
         </NavItem>
         <NavItem active={activeSection === "contact"}>
           <Link href="#contact">Contact</Link>

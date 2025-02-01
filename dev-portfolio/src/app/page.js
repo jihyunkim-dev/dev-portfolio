@@ -13,22 +13,16 @@ export default function Root(props) {
   return (
     <main className="flex flex-col">
       <NavBar />
-      <section id="main" className="min-h-screen">
-        <MainServerContainer params={params} />
-      </section>
       <section id="intro" className="min-h-screen">
+        <MainServerContainer params={params} />
         <IntroServerContainer />
       </section>
-      <section id="skills" className="min-h-screen">
+      <section id="experience" className="min-h-screen">
         <SkillServerContainer />
-      </section>
-      <section id="career" className="min-h-screen">
         <CareerServerContainer />
       </section>
-      <section id="projects" className="min-h-screen">
+      <section id="works" className="min-h-screen">
         <ProjectServerContainer />
-      </section>
-      <section id="archiving" className="min-h-screen">
         <ArchivingServerContainer />
       </section>
       <section id="contact" className="min-h-screen">
