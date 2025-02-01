@@ -4,7 +4,6 @@ import { NavBarHooks } from "@/hooks/NavBarHooks";
 import { styled, keyframes } from "@mui/material/styles";
 import Grid from "@mui/material/Grid2";
 import Link from "next/link";
-import Butterfly from "./Butterfly";
 import theme from "@/configs/customTheme";
 
 const navBarAnimation = keyframes({
@@ -55,7 +54,7 @@ const NavBarGridContainer = styled(Grid)({
 
 const NavItem = styled("div")(({ active }) => ({
   padding: "10px 15px",
-  color: active ? "#000000" : "rgba(255, 255, 255, 0.7)",
+  color: active ? "#000000" : "#254577",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
