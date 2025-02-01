@@ -2,9 +2,16 @@
 
 import { NavBarHooks } from "@/hooks/NavBarHooks";
 import { styled, keyframes } from "@mui/material/styles";
-import Grid from "@mui/material/Grid2";
-import Link from "next/link";
 import theme from "@/configs/customTheme";
+
+import Link from "next/link";
+import Image from "next/image";
+
+import Grid from "@mui/material/Grid2";
+import ButtonBase from "@mui/material/ButtonBase";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import { butterflyIconUrl } from "@/configs/urls";
 
 const navBarAnimation = keyframes({
   "0%": {
@@ -29,6 +36,11 @@ const navBarAnimation = keyframes({
   },
 });
 
+const fadeIn = keyframes({
+  "0%": { opacity: 0 },
+  "100%": { opacity: 1 },
+});
+
 const NavBarContainer = styled("div")({
   position: "fixed",
   bottom: "20px",
@@ -39,6 +51,16 @@ const NavBarContainer = styled("div")({
   width: "min(600px, 80%)",
   visibility: "hidden",
   opacity: 0,
+});
+
+const NavBarContent = styled("div")({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-around",
+  width: "100%",
+  height: "100%",
+  opacity: 0,
+  animation: `${fadeIn} 0.5s ease-out 2.5s forwards`,
 });
 
 const NavBarGridContainer = styled(Grid)({
@@ -52,19 +74,22 @@ const NavBarGridContainer = styled(Grid)({
   boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
 });
 
-const NavItem = styled("div")(({ active }) => ({
-  padding: "10px 15px",
-  color: active ? "#000000" : "#254577",
+const NavItem = styled(Grid)({
+  height: "100%",
+  padding: "0px 15px",
   display: "flex",
-  flexDirection: "column",
   alignItems: "center",
-  gap: "4px",
   transition: "0.3s",
-  cursor: "pointer",
   flex: 1,
+});
+
+const NavListTypo = styled(Typography)(({ $isActive }) => ({
+  color: $isActive ? theme.palette.gray[900] : theme.palette.grey[700],
+  fontFamily: $isActive ? "NanumSquareNeoHeavy" : "NanumSquareNeoBold",
   "&:hover": {
     color: "#ffffff",
   },
+  cursor: "pointer",
 }));
 
 export default function NavBar() {
@@ -81,18 +106,54 @@ export default function NavBar() {
       }}
     >
       <NavBarGridContainer container>
-        <NavItem active={activeSection === "intro"}>
-          <Link href="#intro">Intro</Link>
-        </NavItem>
-        <NavItem active={activeSection === "experience"}>
-          <Link href="#experience">Skills</Link>
-        </NavItem>
-        <NavItem active={activeSection === "works"}>
-          <Link href="#works">Projects</Link>
-        </NavItem>
-        <NavItem active={activeSection === "contact"}>
-          <Link href="#contact">Contact</Link>
-        </NavItem>
+        <NavBarContent
+          sx={{
+            opacity: 0,
+            animation: isVisible
+              ? `${fadeIn} 0.5s ease-out 2.5s forwards`
+              : "none",
+          }}
+        >
+          <NavItem>
+            <Link href="#main">
+              <IconButton>
+                <Image
+                  src={butterflyIconUrl}
+                  alt="main"
+                  width={40}
+                  height={40}
+                />
+              </IconButton>
+            </Link>
+          </NavItem>
+          <NavItem>
+            <Link href="#experience">
+              <ButtonBase>
+                <NavListTypo $isActive={activeSection === "experience"}>
+                  EXPERIENCE
+                </NavListTypo>
+              </ButtonBase>
+            </Link>
+          </NavItem>
+          <NavItem active={activeSection === "works"}>
+            <Link href="#works">
+              <ButtonBase>
+                <NavListTypo $isActive={activeSection === "experience"}>
+                  WORKS
+                </NavListTypo>
+              </ButtonBase>
+            </Link>
+          </NavItem>
+          <NavItem active={activeSection === "contact"}>
+            <Link href="#contact">
+              <ButtonBase>
+                <NavListTypo $isActive={activeSection === "experience"}>
+                  CONTACT
+                </NavListTypo>
+              </ButtonBase>
+            </Link>
+          </NavItem>
+        </NavBarContent>
       </NavBarGridContainer>
     </NavBarContainer>
   );

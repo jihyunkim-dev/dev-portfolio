@@ -5,47 +5,44 @@ import Grid from "@mui/material/Grid2";
 
 const leftFlapAnimation = keyframes({
   "0%": {
-    transform: "rotate(0deg) scale(1,1)",
+    transform: "rotate(5deg) scale(1, 1)",
   },
-  "20%": {
-    transform: "rotate(10deg) scale(1.05,0.95)",
+  "25%": {
+    transform: "rotate(25deg) scale(1.05, 0.95)",
   },
   "50%": {
-    transform: "rotate(0deg) scale(1,1)",
+    transform: "rotate(5deg) scale(1, 1)",
   },
-  "70%": {
-    transform: "rotate(10deg) scale(1.05,0.95)",
+  "75%": {
+    transform: "rotate(15deg) scale(1.05, 0.95)",
   },
   "100%": {
-    transform: "rotate(0deg) scale(1,1)",
+    transform: "rotate(5deg) scale(1, 1)",
   },
 });
 
 const rightFlapAnimation = keyframes({
   "0%": {
-    transform: "rotate(0deg) scale(1,1)",
+    transform: "rotate(-5deg) scale(1, 1)",
   },
-  "20%": {
-    transform: "rotate(-20deg) scale(1.05,0.95)",
-  },
+
   "50%": {
-    transform: "rotate(0deg) scale(1,1)",
+    transform: "rotate(5deg) scale(1, 1)",
   },
-  "70%": {
-    transform: "rotate(-20deg) scale(1.05,0.95)",
-  },
+
   "100%": {
-    transform: "rotate(0deg) scale(1,1)",
+    transform: "rotate(-5deg) scale(1, 1)",
   },
 });
 
 const AnimatedLeftWing = styled("g")({
-  animation: `${leftFlapAnimation} 8s ease-in-out infinite`,
+  animation: `${leftFlapAnimation} 7s ease-in-out infinite`,
   transformOrigin: "500px 570px",
 });
 
 const AnimatedRightWing = styled("g")({
-  animation: `${rightFlapAnimation} 12s ease-in-out infinite`,
+  animation: `${rightFlapAnimation} 8s ease-in-out infinite`,
+  animationDelay: "1s",
   transformOrigin: "450px 570px",
 });
 
