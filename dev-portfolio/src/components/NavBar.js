@@ -83,9 +83,11 @@ const NavItem = styled(Grid)({
   flex: 1,
 });
 
-const NavListTypo = styled(Typography)(({ $isActive }) => ({
-  color: $isActive ? theme.palette.gray[900] : theme.palette.grey[700],
-  fontFamily: $isActive ? "NanumSquareNeoHeavy" : "NanumSquareNeoBold",
+const NavListTypo = styled(Typography, {
+  shouldForwardProp: (prop) => prop !== "isactive",
+})(({ isactive }) => ({
+  color: isactive !== false ? theme.palette.gray[900] : theme.palette.grey[700],
+  fontFamily: isactive !== false ? "NanumSquareNeoHeavy" : "NanumSquareNeoBold",
   "&:hover": {
     color: "#ffffff",
   },
@@ -96,7 +98,6 @@ export default function NavBar() {
   const { isVisible, activeSection } = NavBarHooks();
   return (
     <NavBarContainer
-      container
       sx={{
         visibility: isVisible ? "visible" : "hidden",
         opacity: isVisible ? 1 : 0,
@@ -129,25 +130,25 @@ export default function NavBar() {
           <NavItem>
             <Link href="#experience">
               <ButtonBase>
-                <NavListTypo $isActive={activeSection === "experience"}>
+                <NavListTypo isactive={activeSection === "experience"}>
                   EXPERIENCE
                 </NavListTypo>
               </ButtonBase>
             </Link>
           </NavItem>
-          <NavItem active={activeSection === "works"}>
+          <NavItem>
             <Link href="#works">
               <ButtonBase>
-                <NavListTypo $isActive={activeSection === "experience"}>
+                <NavListTypo isactive={activeSection === "works"}>
                   WORKS
                 </NavListTypo>
               </ButtonBase>
             </Link>
           </NavItem>
-          <NavItem active={activeSection === "contact"}>
+          <NavItem>
             <Link href="#contact">
               <ButtonBase>
-                <NavListTypo $isActive={activeSection === "experience"}>
+                <NavListTypo isactive={activeSection === "contact"}>
                   CONTACT
                 </NavListTypo>
               </ButtonBase>
