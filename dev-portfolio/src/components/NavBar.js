@@ -12,6 +12,7 @@ import ButtonBase from "@mui/material/ButtonBase";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import { butterflyIconUrl } from "@/configs/urls";
+import { useEffect, useState } from "react";
 
 const navBarAnimation = keyframes({
   "0%": {
@@ -36,6 +37,30 @@ const navBarAnimation = keyframes({
   },
 });
 
+const navBarDisappear = keyframes({
+  "0%": {
+    width: "min(600px, 80%)",
+    transform: "translate(-50%, 0)",
+    borderRadius: "30px",
+  },
+  "25%": {
+    width: "60px",
+    transform: "translate(-50%, 0)",
+    borderRadius: "50%",
+  },
+  "50%": {
+    width: "60px",
+    transform: "translate(-50%, 100%)",
+    borderRadius: "50%",
+  },
+  "100%": {
+    width: "60px",
+    transform: "translate(-50%, 120%)",
+    borderRadius: "50%",
+    opacity: 0,
+  },
+});
+
 const fadeIn = keyframes({
   "0%": { opacity: 0 },
   "100%": { opacity: 1 },
@@ -56,7 +81,7 @@ const NavBarContainer = styled("div")({
 const NavBarContent = styled("div")({
   display: "flex",
   alignItems: "center",
-  justifyContent: "space-around",
+  justifyContent: "space-evenly",
   width: "100%",
   height: "100%",
   opacity: 0,
@@ -76,9 +101,9 @@ const NavBarGridContainer = styled(Grid)({
 
 const NavItem = styled(Grid)({
   height: "100%",
-  padding: "0px 15px",
   display: "flex",
   alignItems: "center",
+  justifyContent: "center",
   transition: "0.3s",
   flex: 1,
 });
@@ -86,7 +111,7 @@ const NavItem = styled(Grid)({
 const NavListTypo = styled(Typography, {
   shouldForwardProp: (prop) => prop !== "isactive",
 })(({ isactive }) => ({
-  color: isactive !== false ? theme.palette.gray[900] : theme.palette.grey[700],
+  color: isactive !== false ? theme.palette.gray[700] : theme.palette.grey[700],
   fontFamily: isactive !== false ? "NanumSquareNeoHeavy" : "NanumSquareNeoBold",
   "&:hover": {
     color: "#ffffff",
@@ -96,14 +121,23 @@ const NavListTypo = styled(Typography, {
 
 export default function NavBar() {
   const { isVisible, activeSection } = NavBarHooks();
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    if (!isVisible) {
+      setIsAnimating(true);
+      setTimeout(() => setIsAnimating(false), 1500);
+    }
+  }, [isVisible]);
+
   return (
     <NavBarContainer
       sx={{
-        visibility: isVisible ? "visible" : "hidden",
-        opacity: isVisible ? 1 : 0,
+        visibility: isVisible || isAnimating ? "visible" : "hidden",
+        opacity: isVisible || isAnimating ? 1 : 0,
         animation: isVisible
           ? `${navBarAnimation} 2.5s ease-out forwards`
-          : "none",
+          : `${navBarDisappear} 1.5s ease-out forwards`,
       }}
     >
       <NavBarGridContainer container>
