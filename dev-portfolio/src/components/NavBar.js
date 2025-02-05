@@ -17,45 +17,64 @@ import { useEffect, useState } from "react";
 const navBarAnimation = keyframes({
   "0%": {
     width: "60px",
-    transform: "translate(-50%, 100%)",
+    height: "60px",
+    transform: "translate(-50%, 150%)",
     borderRadius: "50%",
+    opacity: 0,
+  },
+
+  "20%": {
+    width: "60px",
+    height: "60px",
+    transform: "translate(-50%, 0)",
+    borderRadius: "50%",
+    opacity: 1,
   },
   "50%": {
-    width: "60px",
-    transform: "translate(-50%, 0)",
+    width: "120px",
+    height: "120px",
     borderRadius: "50%",
   },
   "75%": {
-    width: "min(600px, 80%)",
-    transform: "translate(-50%, 0)",
-    borderRadius: "30px",
+    width: "280px",
+    height: "80px",
+    borderRadius: "40px",
   },
   "100%": {
-    width: "min(600px, 80%)",
-    transform: "translate(-50%, 0)",
+    width: "min(500px, 85%)",
+    height: "80px",
     borderRadius: "30px",
   },
 });
 
 const navBarDisappear = keyframes({
   "0%": {
-    width: "min(600px, 80%)",
-    transform: "translate(-50%, 0)",
+    width: "min(500px, 85%)",
+    height: "80px",
+    opacity: 1,
     borderRadius: "30px",
   },
   "25%": {
-    width: "60px",
-    transform: "translate(-50%, 0)",
-    borderRadius: "50%",
+    width: "280px",
+    height: "80px",
+    borderRadius: "40px",
   },
   "50%": {
+    width: "120px",
+    height: "120px",
+    borderRadius: "50%",
+  },
+  "75%": {
     width: "60px",
+    height: "60px",
     transform: "translate(-50%, 100%)",
     borderRadius: "50%",
+    opacity: 0.8,
   },
   "100%": {
     width: "60px",
-    transform: "translate(-50%, 120%)",
+    height: "60px",
+    transform: "translate(-50%, 150%)",
     borderRadius: "50%",
     opacity: 0,
   },
@@ -68,14 +87,14 @@ const fadeIn = keyframes({
 
 const NavBarContainer = styled("div")({
   position: "fixed",
-  bottom: "20px",
+  bottom: "50px",
   left: "50%",
   transform: "translateX(-50%)",
   zIndex: 30,
   margin: "0 auto",
-  width: "min(600px, 80%)",
-  visibility: "hidden",
-  opacity: 0,
+  width: "min(500px, 85%)",
+  // visibility: "hidden",
+  // opacity: 0,
 });
 
 const NavBarContent = styled("div")({
@@ -85,12 +104,12 @@ const NavBarContent = styled("div")({
   width: "100%",
   height: "100%",
   opacity: 0,
-  animation: `${fadeIn} 0.5s ease-out 2.5s forwards`,
+  animation: `${fadeIn} 0.4s ease-out 0.5s forwards`,
 });
 
 const NavBarGridContainer = styled(Grid)({
   backgroundColor: theme.palette.darkGray[200],
-  height: "60px",
+  height: "80px",
   width: "100%",
   borderRadius: "30px",
   display: "flex",
@@ -126,7 +145,7 @@ export default function NavBar() {
   useEffect(() => {
     if (!isVisible) {
       setIsAnimating(true);
-      setTimeout(() => setIsAnimating(false), 1500);
+      setTimeout(() => setIsAnimating(false), 800);
     }
   }, [isVisible]);
 
@@ -136,8 +155,8 @@ export default function NavBar() {
         visibility: isVisible || isAnimating ? "visible" : "hidden",
         opacity: isVisible || isAnimating ? 1 : 0,
         animation: isVisible
-          ? `${navBarAnimation} 2.5s ease-out forwards`
-          : `${navBarDisappear} 1.5s ease-out forwards`,
+          ? `${navBarAnimation} 0.8s ease-in-out forwards`
+          : `${navBarDisappear} 0.7s ease-in-out forwards`,
       }}
     >
       <NavBarGridContainer container>
@@ -145,7 +164,7 @@ export default function NavBar() {
           sx={{
             opacity: 0,
             animation: isVisible
-              ? `${fadeIn} 0.5s ease-out 2.5s forwards`
+              ? `${fadeIn} 0.4s ease-out 0.5s forwards`
               : "none",
           }}
         >
