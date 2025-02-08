@@ -14,67 +14,62 @@ import IconButton from "@mui/material/IconButton";
 import { butterflyIconUrl } from "@/configs/urls";
 import { useEffect, useState } from "react";
 
-const navBarAnimation = keyframes({
+const navBarAppear = keyframes({
   "0%": {
     width: "60px",
     height: "60px",
-    transform: "translate(-50%, 150%)",
+    transform: "translate(-50%, 120px)",
     borderRadius: "50%",
     opacity: 0,
   },
-
   "20%": {
+    opacity: 1,
+    transform: "translate(-50%, 80px)",
+  },
+  "40%": {
     width: "60px",
     height: "60px",
-    transform: "translate(-50%, 0)",
-    borderRadius: "50%",
-    opacity: 1,
-  },
-  "50%": {
-    width: "120px",
-    height: "120px",
     borderRadius: "50%",
   },
-  "75%": {
-    width: "280px",
-    height: "80px",
-    borderRadius: "40px",
+  "60%": {
+    width: "200px",
+    height: "60px",
+    borderRadius: "30px",
+    transform: "translate(-50%, 40px)",
   },
   "100%": {
     width: "min(500px, 85%)",
-    height: "80px",
+    height: "60px",
     borderRadius: "30px",
+    transform: "translate(-50%, 0)",
   },
 });
 
 const navBarDisappear = keyframes({
   "0%": {
     width: "min(500px, 85%)",
-    height: "80px",
+    height: "60px",
     opacity: 1,
     borderRadius: "30px",
+    transform: "translate(-50%, 0)",
   },
-  "25%": {
-    width: "280px",
-    height: "80px",
-    borderRadius: "40px",
+  "40%": {
+    width: "200px",
+    height: "60px",
+    borderRadius: "30px",
+    transform: "translate(-50%, 40px)",
+    opacity: 1,
   },
-  "50%": {
-    width: "120px",
-    height: "120px",
-    borderRadius: "50%",
-  },
-  "75%": {
+  "60%": {
     width: "60px",
     height: "60px",
-    transform: "translate(-50%, 100%)",
     borderRadius: "50%",
-    opacity: 0.8,
+    transform: "translate(-50%, 80px)",
   },
   "100%": {
     width: "60px",
     height: "60px",
-    transform: "translate(-50%, 150%)",
+    transform: "translate(-50%, 120px)",
     borderRadius: "50%",
     opacity: 0,
   },
@@ -82,19 +77,19 @@ const navBarDisappear = keyframes({
 
 const fadeIn = keyframes({
   "0%": { opacity: 0 },
+  "60%": { opacity: 0 },
   "100%": { opacity: 1 },
 });
 
 const NavBarContainer = styled("div")({
   position: "fixed",
-  bottom: "50px",
+  bottom: "30px",
   left: "50%",
   transform: "translateX(-50%)",
   zIndex: 30,
   margin: "0 auto",
   width: "min(500px, 85%)",
-  // visibility: "hidden",
-  // opacity: 0,
+  transition: "all 0.3s ease-in-out",
 });
 
 const NavBarContent = styled("div")({
@@ -104,18 +99,19 @@ const NavBarContent = styled("div")({
   width: "100%",
   height: "100%",
   opacity: 0,
-  animation: `${fadeIn} 0.4s ease-out 0.5s forwards`,
+  animation: `${fadeIn} 0.8s ease-out forwards`,
 });
 
 const NavBarGridContainer = styled(Grid)({
-  backgroundColor: theme.palette.darkGray[200],
-  height: "80px",
+  backgroundColor: "rgba(255, 255, 255, 0.8)",
+  backdropFilter: "blur(10px)",
+  height: "60px",
   width: "100%",
   borderRadius: "30px",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
 });
 
 const NavItem = styled(Grid)({
@@ -123,8 +119,11 @@ const NavItem = styled(Grid)({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  transition: "0.3s",
+  transition: "all 0.3s ease",
   flex: 1,
+  "&:hover": {
+    transform: "translateY(-2px)",
+  },
 });
 
 const NavListTypo = styled(Typography, {
@@ -132,8 +131,11 @@ const NavListTypo = styled(Typography, {
 })(({ isactive }) => ({
   color: isactive !== false ? theme.palette.gray[700] : theme.palette.grey[700],
   fontFamily: isactive !== false ? "NanumSquareNeoHeavy" : "NanumSquareNeoBold",
+  fontSize: "14px",
+  letterSpacing: "0.5px",
+  transition: "all 0.3s ease",
   "&:hover": {
-    color: "#ffffff",
+    color: theme.palette.gray[900],
   },
   cursor: "pointer",
 }));
@@ -153,24 +155,23 @@ export default function NavBar() {
     <NavBarContainer
       sx={{
         visibility: isVisible || isAnimating ? "visible" : "hidden",
-        opacity: isVisible || isAnimating ? 1 : 0,
         animation: isVisible
-          ? `${navBarAnimation} 0.8s ease-in-out forwards`
-          : `${navBarDisappear} 0.7s ease-in-out forwards`,
+          ? `${navBarAppear} 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards`
+          : `${navBarDisappear} 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards`,
       }}
     >
       <NavBarGridContainer container>
-        <NavBarContent
-          sx={{
-            opacity: 0,
-            animation: isVisible
-              ? `${fadeIn} 0.4s ease-out 0.5s forwards`
-              : "none",
-          }}
-        >
+        <NavBarContent>
           <NavItem>
             <Link href="#main">
-              <IconButton>
+              <IconButton
+                sx={{
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    transform: "scale(1.1)",
+                  },
+                }}
+              >
                 <Image
                   src={butterflyIconUrl}
                   alt="main"
