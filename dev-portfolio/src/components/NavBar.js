@@ -22,20 +22,18 @@ const navBarAppear = keyframes({
     borderRadius: "50%",
     opacity: 0,
   },
-  "20%": {
+  "30%": {
     opacity: 1,
-    transform: "translate(-50%, 80px)",
-  },
-  "40%": {
+    transform: "translate(-50%, 60px)",
     width: "60px",
     height: "60px",
     borderRadius: "50%",
   },
-  "60%": {
+  "70%": {
     width: "200px",
     height: "60px",
     borderRadius: "30px",
-    transform: "translate(-50%, 40px)",
+    transform: "translate(-50%, 20px)",
   },
   "100%": {
     width: "min(500px, 85%)",
@@ -53,18 +51,18 @@ const navBarDisappear = keyframes({
     borderRadius: "30px",
     transform: "translate(-50%, 0)",
   },
-  "40%": {
+  "30%": {
     width: "200px",
     height: "60px",
     borderRadius: "30px",
-    transform: "translate(-50%, 40px)",
+    transform: "translate(-50%, 20px)",
     opacity: 1,
   },
-  "60%": {
+  "70%": {
     width: "60px",
     height: "60px",
     borderRadius: "50%",
-    transform: "translate(-50%, 80px)",
+    transform: "translate(-50%, 60px)",
   },
   "100%": {
     width: "60px",
@@ -76,9 +74,25 @@ const navBarDisappear = keyframes({
 });
 
 const fadeIn = keyframes({
-  "0%": { opacity: 0 },
-  "60%": { opacity: 0 },
-  "100%": { opacity: 1 },
+  "0%": {
+    opacity: 0,
+    transform: "translateY(10px)",
+  },
+  "100%": {
+    opacity: 1,
+    transform: "translateY(0)",
+  },
+});
+
+const fadeOut = keyframes({
+  "0%": {
+    opacity: 1,
+    transform: "translateY(0)",
+  },
+  "100%": {
+    opacity: 0,
+    transform: "translateY(10px)",
+  },
 });
 
 const NavBarContainer = styled("div")({
@@ -98,8 +112,6 @@ const NavBarContent = styled("div")({
   justifyContent: "space-evenly",
   width: "100%",
   height: "100%",
-  opacity: 0,
-  animation: `${fadeIn} 0.8s ease-out forwards`,
 });
 
 const NavBarGridContainer = styled(Grid)({
@@ -143,12 +155,24 @@ const NavListTypo = styled(Typography, {
 export default function NavBar() {
   const { isVisible, activeSection } = NavBarHooks();
   const [isAnimating, setIsAnimating] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    if (!isVisible) {
+    let contentTimer;
+    let animationTimer;
+
+    if (isVisible) {
+      contentTimer = setTimeout(() => setShowContent(true), 400);
+    } else {
+      setShowContent(false);
       setIsAnimating(true);
-      setTimeout(() => setIsAnimating(false), 800);
+      animationTimer = setTimeout(() => setIsAnimating(false), 1000);
     }
+
+    return () => {
+      clearTimeout(contentTimer);
+      clearTimeout(animationTimer);
+    };
   }, [isVisible]);
 
   return (
@@ -156,12 +180,19 @@ export default function NavBar() {
       sx={{
         visibility: isVisible || isAnimating ? "visible" : "hidden",
         animation: isVisible
-          ? `${navBarAppear} 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards`
-          : `${navBarDisappear} 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards`,
+          ? `${navBarAppear} 1s cubic-bezier(0.4, 0.0, 0.2, 1) forwards`
+          : `${navBarDisappear} 1s cubic-bezier(0.4, 0.0, 0.2, 1) forwards`,
       }}
     >
       <NavBarGridContainer container>
-        <NavBarContent>
+        <NavBarContent
+          sx={{
+            visibility: showContent ? "visible" : "hidden",
+            animation: showContent
+              ? `${fadeIn} 0.4s ease-out forwards`
+              : `${fadeOut} 0.3s ease-in forwards`,
+          }}
+        >
           <NavItem>
             <Link href="#main">
               <IconButton
