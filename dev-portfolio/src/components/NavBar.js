@@ -189,8 +189,8 @@ export default function NavBar() {
           sx={{
             visibility: showContent ? "visible" : "hidden",
             animation: showContent
-              ? `${fadeIn} 0.4s ease-out forwards`
-              : `${fadeOut} 0.3s ease-in forwards`,
+              ? `${fadeIn} 1s ease-out forwards`
+              : `${fadeOut} 1s ease-in forwards`,
           }}
         >
           <NavItem>
