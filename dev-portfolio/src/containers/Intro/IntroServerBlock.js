@@ -8,11 +8,11 @@ export default function IntroServerBlock() {
         <div className="relative z-20 w-full h-full flex flex-col items-center justify-center">
           <IntroTitle />
           <IntroDescription />
-          <div className="w-full flex flex-col gap-y-[50px]">
-            <div className="w-full flex justify-start">
+          <div className="w-full flex flex-col gap-y-[250px] pt-[350px]">
+            <div className="w-full flex justify-start pl-[100px]">
               <FirstIntro />
             </div>
-            <div className="w-full flex justify-start">
+            <div className="w-full flex justify-end">
               <SecondIntro />
             </div>
           </div>
@@ -86,12 +86,12 @@ function FirstIntro() {
 function SecondIntro() {
   return (
     <div>
-      <div>
+      <div className="text-right">
         <p className="text-[64px] font-[NanumSquareNeoExtraBold] tracking-wider bg-gradient-to-b from-primary-400 to-primary-900 [-webkit-text-fill-color:transparent] bg-clip-text">
           다각적 시선으로
         </p>
         <p className="text-[64px] font-[NanumSquareNeoExtraBold] tracking-wider bg-gradient-to-b from-primary-400 to-primary-900 [-webkit-text-fill-color:transparent] bg-clip-text">
-          소통하고 확장하는 개발자.
+          소통하고 확장하는 개발자
         </p>
       </div>
       <div>
