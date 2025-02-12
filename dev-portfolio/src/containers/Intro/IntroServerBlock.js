@@ -74,10 +74,18 @@ function FirstIntro() {
         </p>
       </div>
       <div>
-        <p>우리에게는 아이디어라는</p>
-        <p>작은 시그널이 있습니다.</p>
-        <p>그 시그널을 증폭시켜 실현할 수 있는</p>
-        <p>목적지까지 안정적으로 전달합니다.</p>
+        <p className="text-[25px] font-[NanumSquareNeoExtraBold] text-darkGray-700 tracking-widest">
+          우리에게는 아이디어라는
+        </p>
+        <p className="text-[25px] font-[NanumSquareNeoExtraBold] text-darkGray-700 tracking-widest">
+          작은 시그널이 있습니다.
+        </p>
+        <p className="text-[25px] font-[NanumSquareNeoExtraBold] text-darkGray-700 tracking-widest">
+          그 시그널을 증폭시켜 실현할 수 있는
+        </p>
+        <p className="text-[25px] font-[NanumSquareNeoExtraBold] text-darkGray-700 tracking-widest">
+          목적지까지 안정적으로 전달합니다.
+        </p>
       </div>
     </div>
   );
@@ -94,11 +102,19 @@ function SecondIntro() {
           소통하고 확장하는 개발자
         </p>
       </div>
-      <div>
-        <p>개발을 넘어 디자인과 기획까지,</p>
-        <p>다각적 시선으로 비즈니스를 고려합니다.</p>
-        <p>더 큰 성장을 위한 새로운 관점을 제시하고</p>
-        <p>함께 비즈니스의 가치를 확장하겠습니다.</p>
+      <div className="text-right">
+        <p className="text-[25px] font-[NanumSquareNeoExtraBold] text-darkGray-700 tracking-widest">
+          개발을 넘어 디자인과 기획까지,
+        </p>
+        <p className="text-[25px] font-[NanumSquareNeoExtraBold] text-darkGray-700 tracking-widest">
+          다각적 시선으로 비즈니스를 고려합니다.
+        </p>
+        <p className="text-[25px] font-[NanumSquareNeoExtraBold] text-darkGray-700 tracking-widest">
+          더 큰 성장을 위한 새로운 관점을 제시하고
+        </p>
+        <p className="text-[25px] font-[NanumSquareNeoExtraBold] text-darkGray-700 tracking-widest">
+          함께 비즈니스의 가치를 확장하겠습니다.
+        </p>
       </div>
     </div>
   );
