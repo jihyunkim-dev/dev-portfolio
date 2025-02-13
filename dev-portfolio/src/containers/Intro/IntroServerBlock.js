@@ -12,7 +12,7 @@ export default function IntroServerBlock() {
             <div className="w-full flex justify-start pl-[100px]">
               <FirstIntro />
             </div>
-            <div className="w-full flex justify-end">
+            <div className="w-full flex justify-end pr-[100px]">
               <SecondIntro />
             </div>
           </div>
@@ -70,7 +70,7 @@ function FirstIntro() {
           작은 시그널도
         </p>
         <p className="text-[64px] font-[NanumSquareNeoExtraBold] tracking-wider bg-gradient-to-r from-primary-300 to-primary-900 [-webkit-text-fill-color:transparent] bg-clip-text">
-          놓치지 않는 개발자.
+          놓치지 않는 개발자
         </p>
       </div>
       <div>
