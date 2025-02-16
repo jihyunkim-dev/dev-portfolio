@@ -25,7 +25,6 @@ export default function IntroServerBlock() {
 function IntroTitle() {
   return (
     <div className="flex flex-col pt-[200px]">
-      <Butterfly />
       <p className="text-[80px] font-[NanumSquareNeoExtraBold] tracking-wider bg-gradient-to-r from-primary-300 to-primary-900 [-webkit-text-fill-color:transparent] bg-clip-text">
         REPEATER.
       </p>
