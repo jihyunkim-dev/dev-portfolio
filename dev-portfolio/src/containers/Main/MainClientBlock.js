@@ -1,7 +1,7 @@
 "use client";
 
 import { styled, keyframes } from "@mui/material/styles";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Unstable_Grid2";
 import { downArrowIconUrl } from "@/configs/urls";
 import Image from "next/image";
 

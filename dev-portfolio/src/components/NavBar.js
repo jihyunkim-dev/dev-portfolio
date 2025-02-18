@@ -7,7 +7,7 @@ import theme from "@/configs/customTheme";
 import Link from "next/link";
 import Image from "next/image";
 
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Unstable_Grid2";
 import ButtonBase from "@mui/material/ButtonBase";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
@@ -21,6 +21,7 @@ const navBarAppear = keyframes({
     transform: "translate(-50%, 120px)",
     borderRadius: "50%",
     opacity: 0,
+    yarn,
   },
   "30%": {
     opacity: 1,
