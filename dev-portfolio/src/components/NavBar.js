@@ -21,7 +21,6 @@ const navBarAppear = keyframes({
     transform: "translate(-50%, 120px)",
     borderRadius: "50%",
     opacity: 0,
-    yarn,
   },
   "30%": {
     opacity: 1,
