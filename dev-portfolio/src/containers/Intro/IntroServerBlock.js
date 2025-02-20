@@ -1,5 +1,8 @@
 import Butterfly from "@/components/Butterfly";
 import DefaultLayout from "@/components/DefaultLayout";
+import illustratorCard from "@/configs/urls";
+import figmaCard from "@/configs/urls";
+import nextCard from "@/configs/urls";
 
 export default function IntroServerBlock() {
   return (
