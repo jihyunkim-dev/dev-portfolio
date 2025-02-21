@@ -14,6 +14,7 @@ import IconButton from "@mui/material/IconButton";
 import { butterflyIconUrl } from "@/configs/urls";
 import { useEffect, useState } from "react";
 
+//animation 수정 필요
 const navBarAppear = keyframes({
   "0%": {
     width: "60px",
