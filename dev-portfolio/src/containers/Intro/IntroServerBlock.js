@@ -4,6 +4,8 @@ import illustratorCard from "@/configs/urls";
 import figmaCard from "@/configs/urls";
 import nextCard from "@/configs/urls";
 
+import { signalEffect } from "./IntroClientBlock";
+
 export default function IntroServerBlock() {
   return (
     <DefaultLayout>
@@ -12,8 +14,13 @@ export default function IntroServerBlock() {
           <IntroTitle />
           <IntroDescription />
           <div className="w-full flex flex-col gap-y-[250px] pt-[350px]">
-            <div className="w-full flex justify-start pl-[100px]">
-              <FirstIntro />
+            <div className="w-full flex">
+              <div className="w-full flex justify-start pl-[100px]">
+                <FirstIntro />
+              </div>
+              <div className="w-full">
+                <signalEffect />
+              </div>
             </div>
             <div className="w-full flex justify-end pr-[100px]">
               <SecondIntro />
