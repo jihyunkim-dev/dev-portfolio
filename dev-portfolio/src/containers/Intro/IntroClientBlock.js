@@ -9,8 +9,22 @@ const LargeSignal = styled(Grid)({
   backgroundColor: theme.palette.main,
 });
 
+const MediumSignal = styled("div")({
+  display: "flex",
+});
+
+const SmallSignal = styled("div")({
+  display: "flex",
+});
+
 function Signal() {
-  return <LargeSignal></LargeSignal>;
+  return (
+    <Grid container>
+      <LargeSignal />
+      <MediumSignal />
+      <SmallSignal />
+    </Grid>
+  );
 }
 
 export function signalEffect() {
