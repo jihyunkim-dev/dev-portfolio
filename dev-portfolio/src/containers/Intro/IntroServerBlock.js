@@ -18,7 +18,7 @@ export default function IntroServerBlock() {
               <div className="w-full flex justify-start pl-[100px]">
                 <FirstIntro />
               </div>
-              <div className="w-full">
+              <div className="w-full flex">
                 <signalEffect />
               </div>
             </div>

@@ -4,8 +4,11 @@ import theme from "@/configs/customTheme";
 import Grid from "@mui/material/Grid";
 import { styled, keyframes } from "@mui/material/styles";
 
-const LargeSignal = styled(Grid)({
+const LargeSignal = styled("div")({
   display: "flex",
+  position: "relative",
+  width: "100px",
+  height: "100px",
   backgroundColor: theme.palette.main,
 });
 
