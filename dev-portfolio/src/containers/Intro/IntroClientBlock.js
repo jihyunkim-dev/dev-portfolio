@@ -14,6 +14,7 @@ const LargeSignal = styled("div")({
 
 const MediumSignal = styled("div")({
   display: "flex",
+  backgroundColor: theme.palette.main,
 });
 
 const SmallSignal = styled("div")({
