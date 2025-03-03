@@ -6,10 +6,10 @@ import { styled, keyframes } from "@mui/material/styles";
 
 const LargeSignal = styled("div")({
   display: "flex",
-  position: "relative",
+  position: "absolute",
   width: "100px",
   height: "100px",
-  backgroundColor: theme.palette.main,
+  background: "#000000",
 });
 
 const MediumSignal = styled("div")({
@@ -21,22 +21,14 @@ const SmallSignal = styled("div")({
   display: "flex",
 });
 
-function Signal() {
-  return (
-    <Grid container>
-      <LargeSignal />
-      <MediumSignal />
-      <SmallSignal />
-    </Grid>
-  );
+function LargeSignalEffect() {
+  return <LargeSignal />;
 }
 
-export function signalEffect() {
+export function SignalEffect() {
   return (
     <Grid container>
-      <Grid item>
-        <Signal />
-      </Grid>
+      <LargeSignalEffect />
     </Grid>
   );
 }
