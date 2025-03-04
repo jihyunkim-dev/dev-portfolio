@@ -9,7 +9,7 @@ const LargeSignal = styled("div")({
   position: "absolute",
   width: "100px",
   height: "100px",
-  background: "#000000",
+  background: theme.palette.primary.main,
 });
 
 const MediumSignal = styled("div")({
@@ -21,14 +21,20 @@ const SmallSignal = styled("div")({
   display: "flex",
 });
 
-function LargeSignalEffect() {
-  return <LargeSignal />;
+function Signal() {
+  return (
+    <Grid container>
+      <LargeSignal />
+      <MediumSignal />
+      <SmallSignal />
+    </Grid>
+  );
 }
 
 export function SignalEffect() {
   return (
     <Grid container>
-      <LargeSignalEffect />
+      <Signal />
     </Grid>
   );
 }
