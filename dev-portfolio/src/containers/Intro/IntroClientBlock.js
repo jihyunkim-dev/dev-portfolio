@@ -103,7 +103,12 @@ export function SignalEffect() {
         <Grid item xs={6} justifyContent="flex-start">
           <FirstSignal />
         </Grid>
-        <Grid item xs={4} justifyContent="flex-start">
+        <Grid
+          item
+          xs={4}
+          justifyContent="flex-start"
+          sx={{ marginTop: "150px" }}
+        >
           <SecondSignal />
         </Grid>
       </Grid>
