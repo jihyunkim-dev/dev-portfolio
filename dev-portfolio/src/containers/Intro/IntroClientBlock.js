@@ -4,44 +4,113 @@ import theme from "@/configs/customTheme";
 import Grid from "@mui/material/Grid";
 import { styled, keyframes } from "@mui/material/styles";
 
-const firstPulse = keyframes({
+// const firstPulse = keyframes({
+//   "0%": {
+//     transform: "scale(0.8)",
+//     opacity: 0.3,
+//   },
+//   "50%": {
+//     transform: "scale(1)",
+//     opacity: 0.15,
+//   },
+//   "100%": {
+//     transform: "scale(1.2)",
+//     opacity: 0.3,
+//   },
+// });
+
+// const secondPulse = keyframes({
+//   "0%": {
+//     transform: "scale(0.8)",
+//     opacity: 0.55,
+//   },
+//   "50%": {
+//     transform: "scale(1)",
+//     opacity: 0.25,
+//   },
+//   "100%": {
+//     transform: "scale(1.2)",
+//     opacity: 0.55,
+//   },
+// });
+
+// const thirdPulse = keyframes({
+//   "0%": {
+//     transform: "scale(0.8)",
+//     opacity: 0.75,
+//   },
+//   "50%": {
+//     transform: "scale(1)",
+//     opacity: 0.3,
+//   },
+//   "100%": {
+//     transform: "scale(1.2)",
+//     opacity: 0.75,
+//   },
+// });
+
+const pulseAnimation = keyframes({
   "0%": {
     transform: "scale(0.8)",
     opacity: 0.3,
+  },
+  "25%": {
+    transform: "scale(0.9)",
+    opacity: 0.2,
   },
   "50%": {
     transform: "scale(1)",
     opacity: 0.15,
   },
-  "100%": {
-    transform: "scale(1.2)",
-    opacity: 0.3,
-  },
-});
-
-const secondPulse = keyframes({
-  "0%": {
-    transform: "scale(0.8)",
-    opacity: 0.55,
-  },
-  "50%": {
-    transform: "scale(1)",
+  "75%": {
+    transform: "scale(1.1)",
     opacity: 0.25,
   },
   "100%": {
     transform: "scale(1.2)",
+    opacity: 0.3,
+  },
+});
+
+const mediumPulse = keyframes({
+  "0%": {
+    transform: "scale(0.8)",
+    opacity: 0.55,
+  },
+  "25%": {
+    transform: "scale(0.9)",
+    opacity: 0.45,
+  },
+  "50%": {
+    transform: "scale(1)",
+    opacity: 0.35,
+  },
+  "75%": {
+    transform: "scale(1.1)",
+    opacity: 0.45,
+  },
+  "100%": {
+    transform: "scale(1.2)",
     opacity: 0.55,
   },
 });
 
-const thirdPulse = keyframes({
+const smallPulse = keyframes({
   "0%": {
     transform: "scale(0.8)",
     opacity: 0.75,
   },
+  "25%": {
+    transform: "scale(0.9)",
+    opacity: 0.65,
+  },
   "50%": {
     transform: "scale(1)",
-    opacity: 0.3,
+    opacity: 0.55,
+  },
+  "75%": {
+    transform: "scale(1.1)",
+    opacity: 0.65,
   },
   "100%": {
     transform: "scale(1.2)",
@@ -59,7 +128,7 @@ const FirstLargeSignal = styled("div")({
   opacity: 0.3,
   filter: "blur(10px)",
   flexShrink: 0,
-  animation: `${firstPulse} 4s ease-in-out infinite`,
+  animation: `${pulseAnimation} 3.5s ease-in-out infinite`,
 });
 
 const FirstMediumSignal = styled("div")({
@@ -72,7 +141,7 @@ const FirstMediumSignal = styled("div")({
   opacity: 0.55,
   filter: "blur(9px)",
   flexShrink: 0,
-  animation: `${secondPulse} 4s ease-in-out infinite`,
+  animation: `${mediumPulse} 3.5s ease-in-out infinite`,
 });
 
 const FirstSmallSignal = styled("div")({
@@ -85,7 +154,7 @@ const FirstSmallSignal = styled("div")({
   opacity: 0.75,
   filter: "blur(7px)",
   flexShrink: 0,
-  animation: `${thirdPulse} 4s ease-in-out infinite`,
+  animation: `${smallPulse} 3.5s ease-in-out infinite`,
 });
 
 const SecondLargeSignal = styled("div")({
@@ -98,7 +167,7 @@ const SecondLargeSignal = styled("div")({
   opacity: 0.3,
   filter: "blur(10px)",
   flexShrink: 0,
-  animation: `${firstPulse} 4s ease-in-out infinite`,
+  animation: `${pulseAnimation} 3.5s ease-in-out infinite`,
 });
 
 const SecondMediumSignal = styled("div")({
@@ -111,7 +180,7 @@ const SecondMediumSignal = styled("div")({
   opacity: 0.55,
   filter: "blur(9px)",
   flexShrink: 0,
-  animation: `${secondPulse} 4s ease-in-out infinite`,
+  animation: `${mediumPulse} 3.5s ease-in-out infinite`,
 });
 
 const SecondSmallSignal = styled("div")({
@@ -124,7 +193,7 @@ const SecondSmallSignal = styled("div")({
   opacity: 0.75,
   filter: "blur(7px)",
   flexShrink: 0,
-  animation: `${thirdPulse} 4s ease-in-out infinite`,
+  animation: `${smallPulse} 3.5s ease-in-out infinite`,
 });
 
 function FirstSignal() {
